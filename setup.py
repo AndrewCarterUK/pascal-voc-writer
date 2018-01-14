@@ -38,5 +38,5 @@ setup(
 
     packages=['pascal_voc_writer'],
 
-    install_requires=['jinja'],
+    install_requires=['jinja2'],
 )
