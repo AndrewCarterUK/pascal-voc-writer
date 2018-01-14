@@ -1,1 +1,1 @@
-jinja>=2.0
+jinja2
