@@ -10,7 +10,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name='pascal-voc-writer',
-    version='0.1.3',
+    version='0.1.4',
 
     description='Create image annotation XML files in the PASCAL VOC format',
     long_description=long_description,
@@ -37,6 +37,8 @@ setup(
     keywords='pascal voc annotation writer xml',
 
     packages=['pascal_voc_writer'],
+
+    include_package_data=True,
 
     install_requires=['jinja2'],
 )
