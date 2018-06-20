@@ -12,6 +12,8 @@ Install
 Use
 ---
 
+    from pascal_voc_writer import Writer
+
     # Writer(path, width, height)
 
     writer = Writer('path/to/img.jpg', 800, 400)
