@@ -8,6 +8,7 @@
     <size>
         <width>{{ width }}</width>
         <height>{{ height }}</height>
+        <z>{{ z }}</z>
         <depth>{{ depth }}</depth>
     </size>
     <segmented>{{ segmented }}</segmented>
@@ -19,8 +20,10 @@
         <bndbox>
             <xmin>{{ object.xmin }}</xmin>
             <ymin>{{ object.ymin }}</ymin>
+            <zmin>{{ object.zmin }}</zmin>
             <xmax>{{ object.xmax }}</xmax>
             <ymax>{{ object.ymax }}</ymax>
+            <zmax>{{ object.zmax }}</zmax>
         </bndbox>
     </object>{% endfor %}
 </annotation>

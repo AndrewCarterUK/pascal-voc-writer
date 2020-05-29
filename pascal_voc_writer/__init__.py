@@ -3,7 +3,7 @@ from jinja2 import Environment, PackageLoader
 
 
 class Writer:
-    def __init__(self, path, width, height, depth=3, database='Unknown', segmented=0):
+    def __init__(self, path, width, height, z=None, depth=1, database='Unknown', segmented=0):
         environment = Environment(loader=PackageLoader('pascal_voc_writer', 'templates'), keep_trailing_newline=True)
         self.annotation_template = environment.get_template('annotation.xml')
 
@@ -15,6 +15,7 @@ class Writer:
             'folder': os.path.basename(os.path.dirname(abspath)),
             'width': width,
             'height': height,
+            'z': z,
             'depth': depth,
             'database': database,
             'segmented': segmented,
@@ -28,6 +29,20 @@ class Writer:
             'ymin': ymin,
             'xmax': xmax,
             'ymax': ymax,
+            'pose': pose,
+            'truncated': truncated,
+            'difficult': difficult,
+        })
+
+    def addObject3d(self, name, xmin, ymin, zmin, xmax, ymax, zmax, pose='Unspecified', truncated=0, difficult=0):
+        self.template_parameters['objects'].append({
+            'name': name,
+            'xmin': xmin,
+            'ymin': ymin,
+            'zmin': zmin,
+            'xmax': xmax,
+            'ymax': ymax,
+            'zmax': zmax,
             'pose': pose,
             'truncated': truncated,
             'difficult': difficult,
