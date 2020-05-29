@@ -23,6 +23,9 @@ Use
 
     writer.addObject('cat', 100, 100, 200, 200)
 
+    # ::addObject3d(name, xmin, ymin, zmin, xmax, ymax, zmax)
+
+    writer.addObject3d('cat', 100, 100,100, 200, 200, 200)
 
     # ::save(path)
 
