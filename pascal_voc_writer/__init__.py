@@ -1,6 +1,6 @@
 import os
 from jinja2 import Environment, PackageLoader
-
+from xml.sax.saxutils import escape
 
 class Writer:
     def __init__(self, path, width, height, depth=3, database='Unknown', segmented=0):
@@ -22,6 +22,11 @@ class Writer:
         }
 
     def addObject(self, name, xmin, ymin, xmax, ymax, pose='Unspecified', truncated=0, difficult=0):
+        # REMOVING ESCAPE CHAR FOR XML
+        for ec in ['&', '<', '>']:
+            if ec in name:
+                name = name.replace(ec, escape(ec))
+        
         self.template_parameters['objects'].append({
             'name': name,
             'xmin': xmin,
